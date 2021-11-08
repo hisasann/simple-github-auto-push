@@ -1,12 +1,17 @@
 {
   "name": "simple-github-auto-push",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Simple github actions to push to github",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "dockerlint Dockerfile",
+    "act": "act -P ubuntu-latest=nektos/act-environments-ubuntu:18.04"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": ["github-actions", "docker", "shellscript"],
+  "author": "Yoshiyuki Hisamatsu <hisasann25@gmail.com> (https://hisasann.dev/)",
+  "license": "(Apache-2.0 AND MIT)",
+  "homepage": "https://github.com/hisasann/simple-github-auto-push#readme",
+  "devDependencies": {
+    "dockerlint": "^0.3.9"
+  }
 }
