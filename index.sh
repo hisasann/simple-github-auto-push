@@ -15,7 +15,7 @@ remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSIT
 git config http.sslVerify false
 git config user.name "simple-github-auto-push"
 git config user.email "actions@users.noreply.github.com"
-git remote add origin "${remote_repo}"
+git remote add pusher "${remote_repo}"
 git show-ref # useful for debugging
 git branch --verbose
 
@@ -24,5 +24,5 @@ git checkout ${BRANCH_NAME}
 git add -A
 timestamp=$(date -u)
 git commit -m "simple-github-auto-push: ${timestamp} ${GITHUB_SHA}" || exit 0
-git pull --rebase origin ${BRANCH_NAME}
-git push origin ${BRANCH_NAME}
+git pull --rebase pusher ${BRANCH_NAME}
+git push pusher ${BRANCH_NAME}
