@@ -1,0 +1,8 @@
+name: 'simple-github-auto-push'
+description: 'Simple github actions to push to github'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'link'
+  color: 'green'
