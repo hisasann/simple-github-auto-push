@@ -1,0 +1,25 @@
+name: Node.js CI
+on: push
+
+jobs:
+  build:
+    name: Node.js ${{ matrix.os }} ${{ matrix.node }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [ '14' ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - run: |
+          yarn install
+          npm run build --if-present
+          yarn test
+      - uses: hisasann/simple-github-auto-push@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
